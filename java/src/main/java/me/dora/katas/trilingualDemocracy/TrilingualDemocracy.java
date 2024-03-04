@@ -14,9 +14,13 @@ public class TrilingualDemocracy {
         } else if (languages[2] == languages[0]) {
             return languages[1];
         }
-        char[] copiedAvailableLanguageArray = new char[4];
-        System.arraycopy(availableLanguages, 0, copiedAvailableLanguageArray, 0, 4);
-
-        return '?';
+        char first = languages[0], second = languages[1], third = languages[2];
+        for (char language : availableLanguages) {
+            if (language != first && language != second && language != third) {
+                return language;
+            }
+        }
+        throw new IllegalStateException();
     }
 }
+

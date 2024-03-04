@@ -18,4 +18,5 @@ function rounders(number) {
   return digits.join("");
 }
 
-const log = rounders(22);
+const log = rounders(145);
+console.log(log);

@@ -1,9 +1,24 @@
-function pisano(n){
-    //TODO: Calculate Pisano Period   
+
+  function pisano(n){
+    let pisano = "01"
+    let currentNumber = 1;
+    while(pisano.indexOf("01", 1) == -1){
+      let number = (pisano[currentNumber] + pisano[currentNumber - 1]) % n
+      console.log("number is: ", number);
+      pisano += number
+      currentNumber++
+      console.log("building a pisano period :", pisano);
+    }
+    const result = pisano.indexOf("01", 1)
+    return result
   }
 
+  const log = pisano(2)
+  console.log(log)
 
-  //generate a string -> always add the calculated pisano to the string
-  //check the lastindexof 01 -> that's the pattern I have to look for and stop the generation if I've found it
-  //last index of the generated string is bigger than 0 -> it must be bigger than 0, because 01 starts the pattern and 0 is on the 0th index
-  //
+  
+
+
+
+  //before generating the new number, parseint it and then convert it back to string again
+  //parsing the string "01" will be 1

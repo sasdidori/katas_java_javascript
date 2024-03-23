@@ -1,22 +1,15 @@
-function rounders(number) {
-  const splitted = number.toString().split("");
-  const digits = [];
-  for (let i = splitted.length - 1; i > 0; i--) {
-    if (splitted[i] >= 5) {
-      digits.unshift(0);
-      splitted[i - 1] + 1;
-    } else {
-      digits.unshift(0);
-    }
+function rounders(number){
+  const digits = []
+  const numberArray = number.toString().split("").map(Number)
+  let carry = 0
+  for(let i = numberArray.length - 1; i > 0; i--) {
+    const number = numberArray[i] + carry
+    carry = number >= 5 ? 1 : 0 
+    digits.unshift(0)
   }
-  if (splitted[1] >= 5) {
-    const firstDigit = parseInt(splitted[0]);
-    digits.unshift(parseInt(firstDigit + 1, 10));
-  } else {
-    digits.unshift(parseInt(splitted[0], 10));
-  }
-  return digits.join("");
+  digits.unshift(numberArray[0] + carry)
+  const result = Number(digits.join(''))
+  return result
 }
-
-const log = rounders(145);
-console.log(log);
+const log = rounders(1438)
+console.log(log)

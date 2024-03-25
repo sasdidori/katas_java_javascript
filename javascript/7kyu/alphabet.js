@@ -1,13 +1,14 @@
 let values = {}
-let numbers = [20,10,6,5,4,3,2,12]
+let numbers = [2,6,7,3,14,35,15,5]
 let numbersCopy = [...numbers]
 let sorted = numbersCopy.sort((a, b) => a - b)
 
 function alphabet(sorted) { 
     values.A = sorted[0]
     sorted.shift()
+
     values.B = sorted[0]
-    
+   
     if(sorted[1] > sorted[0]){
         values.C = sorted[1]
         sorted.shift()
@@ -17,7 +18,6 @@ function alphabet(sorted) {
         sorted.shift()
         sorted.splice(1, 1)
     }
-    
     getAxBAndBxC()
     getCxDAndDxA(values.C)
     getCxDAndDxA(values.A)
